@@ -1,21 +1,198 @@
-<table mat-table [dataSource]="usuarios" class="mat-elevation-z8">
-    <!-- Columnas de la tabla -->
-    <ng-container matColumnDef="id">
-      <th mat-header-cell *matHeaderCellDef> Id </th>
-      <td mat-cell *matCellDef="let usuario"> {{ usuario.id }} </td>
-    </ng-container>
+<table mat-table [dataSource]="usuarios" class="mat-elevation-z8 demo-table">
+  <!-- Columnas de la tabla -->
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> Id </th>
+    <td mat-cell *matCellDef="let usuario"> {{ usuario.id }} </td>
+  </ng-container>
 
-    <ng-container matColumnDef="equipoSoftware">
-        <th mat-header-cell *matHeaderCellDef> activo </th>
-        <td mat-cell *matCellDef="let usuario"> {{ usuario.equipoSoftware?.activo }} </td>
-      </ng-container>
-  
-    <!-- Encabezado de la tabla -->
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  
-    <!-- Filas de datos -->
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
-  
-  <mat-paginator [length]="totalElements" [pageSize]="pageSize" [pageIndex]="paginator.pageIndex" (page)="onPageChange($event)"></mat-paginator>
-  
+  <ng-container matColumnDef="nombreEquipo">
+    <th mat-header-cell *matHeaderCellDef> nombre Equipo </th>
+    <td mat-cell *matCellDef="let usuario"> {{ usuario.equipoSoftware?.nombreEquipo }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="cenCos">
+    <th mat-header-cell *matHeaderCellDef> centro De Costos </th>
+    <td mat-cell *matCellDef="let usuario"> {{ usuario.cenCos }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="grupoAreaPertenece">
+    <th mat-header-cell *matHeaderCellDef> grupo o area  pertenece </th>
+    <td mat-cell *matCellDef="let usuario"> {{ usuario.grupoAreaPertence }} </td>
+  </ng-container>
+
+   <ng-container matColumnDef="usuarioResp">
+    <th mat-header-cell *matHeaderCellDef> usuario Responsable </th>
+    <td mat-cell *matCellDef="let usuario"> {{ usuario.nombre }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="documento">
+    <th mat-header-cell *matHeaderCellDef> documento </th>
+    <td mat-cell *matCellDef="let usuario"> {{ usuario.documento }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="cargo">
+    <th mat-header-cell *matHeaderCellDef> cargo </th>
+    <td mat-cell *matCellDef="let usuario"> {{ usuario.cargo }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="fechaAsignacion">
+    <th mat-header-cell *matHeaderCellDef> fecha de asignación </th>
+    <td mat-cell *matCellDef="let usuario"> {{ usuario.fechaAsignacion }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="fechaCompra">
+    <th mat-header-cell *matHeaderCellDef> fecha de compra </th>
+    <td mat-cell *matCellDef="let usuario"> {{ usuario.fechaCompra }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="activo">
+    <th mat-header-cell *matHeaderCellDef> activo </th>
+    <td mat-cell *matCellDef="let usuario"> {{ usuario.equipoSoftware?.activo }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="marca">
+    <th mat-header-cell *matHeaderCellDef> marca </th>
+    <td mat-cell *matCellDef="let usuario"> {{ usuario.equipoHadware?.marca }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="modelo">
+    <th mat-header-cell *matHeaderCellDef> modelo </th>
+    <td mat-cell *matCellDef="let usuario"> {{ usuario.equipoHadware?.modelo }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="tipo">
+    <th mat-header-cell *matHeaderCellDef> tipo </th>
+    <td mat-cell *matCellDef="let usuario"> {{ usuario.equipoHadware?.tipo }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="sisOper">
+    <th mat-header-cell *matHeaderCellDef> sistema  operativo </th>
+    <td mat-cell *matCellDef="let usuario"> {{ usuario.equipoSoftware?.sisOperativo }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="licencia">
+    <th mat-header-cell *matHeaderCellDef> licencia </th>
+    <td mat-cell *matCellDef="let usuario"> {{ usuario.equipoSoftware?.licencia }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="procesador">
+    <th mat-header-cell *matHeaderCellDef> procesador </th>
+    <td mat-cell *matCellDef="let usuario"> {{ usuario.equipoHadware?.procesador }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="frecuencia">
+    <th mat-header-cell *matHeaderCellDef> frecuencia </th>
+    <td mat-cell *matCellDef="let usuario"> {{ usuario.equipoHadware?.frecuencia }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="memRar">
+    <th mat-header-cell *matHeaderCellDef> memoria ram </th>
+    <td mat-cell *matCellDef="let usuario"> {{ usuario.equipoHadware?.memRar }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="capacidad">
+    <th mat-header-cell *matHeaderCellDef> capacidad </th>
+    <td mat-cell *matCellDef="let usuario"> {{ usuario.equipoHadware?.capacidad }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="discDur">
+    <th mat-header-cell *matHeaderCellDef> discos  duros </th>
+    <td mat-cell *matCellDef="let usuario"> {{ usuario.equipoHadware?.discDuros }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="tipo2">
+    <th mat-header-cell *matHeaderCellDef> tipo 2 </th>
+    <td mat-cell *matCellDef="let usuario"> {{ usuario.equipoHadware?.tipo2 }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="monMar">
+    <th mat-header-cell *matHeaderCellDef> marca <br> monitor </th>
+    <td mat-cell *matCellDef="let usuario"> {{ usuario.equipoHadware?.marcaMonitor }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="tamanio">
+    <th mat-header-cell *matHeaderCellDef> tamaño </th>
+    <td mat-cell *matCellDef="let usuario"> {{ usuario.equipoHadware?.tamanio }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="modelo3">
+    <th mat-header-cell *matHeaderCellDef> modelo 3 </th>
+    <td mat-cell *matCellDef="let usuario"> {{ usuario.equipoHadware?.modelo3 }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="serial4">
+    <th mat-header-cell *matHeaderCellDef> serial 4 </th>
+    <td mat-cell *matCellDef="let usuario"> {{ usuario.equipoHadware?.serial4 }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="activo5">
+    <th mat-header-cell *matHeaderCellDef> activo 5 </th>
+    <td mat-cell *matCellDef="let usuario"> {{ usuario.equipoHadware?.activo5 }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="tecMarca">
+    <th mat-header-cell *matHeaderCellDef> marca teclado </th>
+    <td mat-cell *matCellDef="let usuario"> {{ usuario.equipoHadware?.marcaTeclado }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="serial6">
+    <th mat-header-cell *matHeaderCellDef> serial 6 </th>
+    <td mat-cell *matCellDef="let usuario"> {{ usuario.equipoHadware?.serial6 }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="mousMarc">
+    <th mat-header-cell *matHeaderCellDef> marca mouse </th>
+    <td mat-cell *matCellDef="let usuario"> {{ usuario.equipoHadware?.marcaMouse }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="serial7">
+    <th mat-header-cell *matHeaderCellDef> serial 7 </th>
+    <td mat-cell *matCellDef="let usuario"> {{ usuario.equipoHadware?.serial7 }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="cargMarc">
+    <th mat-header-cell *matHeaderCellDef> marca cargador </th>
+    <td mat-cell *matCellDef="let usuario"> {{ usuario.equipoHadware?.marcaCargador }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="serial8">
+    <th mat-header-cell *matHeaderCellDef> serial 8</th>
+    <td mat-cell *matCellDef="let usuario"> {{ usuario.equipoHadware?.serial8 }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="macAdpInal">
+    <th mat-header-cell *matHeaderCellDef> MAC ADAPTADOR INALÁMBRICO WI-FI</th>
+    <td mat-cell *matCellDef="let usuario"> {{ usuario.equipoHadware?.macAdapInaWifi }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="macAdEth">
+    <th mat-header-cell *matHeaderCellDef> MAC ADAPTADOR ETHERNET</th>
+    <td mat-cell *matCellDef="let usuario"> {{ usuario.equipoHadware?.macAdapEthernet }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="dominioGrupo">
+    <th mat-header-cell *matHeaderCellDef> Dominio Grupo</th>
+    <td mat-cell *matCellDef="let usuario"> {{ usuario.equipoSoftware?.dominioGrupo }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="observaciones">
+    <th mat-header-cell *matHeaderCellDef> observaciones</th>
+    <td mat-cell *matCellDef="let usuario"> {{ usuario.observacion }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="estado">
+    <th mat-header-cell *matHeaderCellDef> estado</th>
+    <td mat-cell *matCellDef="let usuario"> {{ usuario.estado }} </td>
+  </ng-container>
+
+
+
+  <!-- Encabezado de la tabla -->
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+
+  <!-- Filas de datos -->
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<mat-paginator [length]="totalElements" [pageSize]="pageSize" [pageIndex]="paginator.pageIndex"
+  (page)="onPageChange($event)" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>

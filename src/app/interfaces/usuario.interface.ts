@@ -10,7 +10,8 @@
 
 export interface EquipoHadwareInterface {
 	idEquipoHadware: number;
-	marcaMOnitor?: string;
+	marca?:string;
+	marcaMonitor?: string;
 	tamanio?: string;
 	modelo3?: string;
 	serial4?: string;
@@ -23,6 +24,14 @@ export interface EquipoHadwareInterface {
 	serial8?: string;
 	macAdapInaWifi?: string;
 	macAdapEthernet?: string;
+	modelo?:string;
+	tipo?:string;
+	procesador?:string;
+	fecuencia?:string;
+	memRar?:string;
+	capacidad?:string;
+	discDuros?:string;
+	tipo2:string;
 }
 export interface Content {
 	id: number;
