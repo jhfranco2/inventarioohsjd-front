@@ -1,13 +1,44 @@
-.menu-toolbar {
-    display: flex;
-    justify-content: space-between;
+.desktop-menu {
+    display: none;
+  }
+  
+  @media (min-width: 768px) {
+    .desktop-menu {
+      display: block;
+    }
+  }
+  
+  .mobile-toolbar {
+    display: block;
+  }
+  
+  @media (min-width: 768px) {
+    .mobile-toolbar {
+      display: none;
+    }
+  }
+  
+  .menu-toolbar {
+    background-color: #3949ab;
+    color: white;
+  }
+  
+  .users-button {
+    margin-left: 10px;
   }
   
   .spacer {
     flex: 1 1 auto;
   }
   
-  button {
-    margin-left: 10px;
+  .logo-container {
+    display: flex;
+    align-items:start;
+    justify-content: flex-end;
+  }
+  
+  .logo-container img {
+    width: 200px; /* Ajusta el ancho del logo según tus necesidades */
+    height: 90px; /* Ajusta la altura del logo según tus necesidades */
   }
   
