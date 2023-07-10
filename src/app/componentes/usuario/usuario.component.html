@@ -1,4 +1,4 @@
-<div class="table-container">
+<div class="table-container" *ngIf="usuarios.length >0; else noUsuarios">
 <br><br>
 <table mat-table [dataSource]="usuarios" class="mat-elevation-z8 demo-table table">
   <!-- Columnas de la tabla -->
@@ -195,7 +195,14 @@
   <!-- Filas de datos -->
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
+
 </div>
+<ng-template #noUsuarios>
+  <br><br><br>
+  <div>
+    No se encontró invetario
+  </div>
+</ng-template>
 <div class="paginator-container">
   <mat-paginator [length]="totalElements" [pageSize]="pageSize" [pageIndex]="paginator.pageIndex"
     (page)="onPageChange($event)" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
