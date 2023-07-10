@@ -7,11 +7,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatPaginatorModule } from '@angular/material/paginator'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from '@angular/material/table';
-
+import {MatMenuContent, MatMenuModule} from '@angular/material/menu';
+import { MenuComponent } from './componentes/menu/menu.component';
+import {MatButtonModule} from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
 @NgModule({
   declarations: [
     AppComponent,
-    UsuarioComponent
+    UsuarioComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
@@ -19,7 +24,12 @@ import { MatTableModule } from '@angular/material/table';
     HttpClientModule,
     MatPaginatorModule,
     BrowserAnimationsModule,
-    MatTableModule
+    MatTableModule,
+    MatMenuModule,
+    MatButtonModule,
+    MatToolbarModule,
+    MatIconModule
+    
 
   ],
   providers: [],
