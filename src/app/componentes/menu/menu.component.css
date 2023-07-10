@@ -33,12 +33,14 @@
   
   .logo-container {
     display: flex;
-    align-items:start;
-    justify-content: flex-end;
+    align-items:center;
   }
   
   .logo-container img {
-    width: 200px; /* Ajusta el ancho del logo según tus necesidades */
-    height: 90px; /* Ajusta la altura del logo según tus necesidades */
+    width: 200px; 
+    height: 90px; 
+    
+    
   }
+  
   

@@ -5,7 +5,7 @@
           <a routerLinkActive="true" routerLink="inicio"><img src="assets/imagenes/logo-orden.png" alt="Logo de la orden" ></a>
         </span>
         <span class="spacer"></span>
-        <button mat-button class="users-button" routerLink="/usuarios"><mat-icon>storage</mat-icon></button>
+        <button mat-button class="users-button" routerLink="/usuarios" matTooltip="Inventario Equipos"><mat-icon>storage</mat-icon></button>
       </mat-toolbar-row>
     </mat-toolbar>
   </div>
@@ -13,10 +13,10 @@
   
   <mat-toolbar color="primary" class="mobile-toolbar">
     <mat-toolbar-row>
-      <button mat-icon-button [matMenuTriggerFor]="menuItems" aria-label="Menu">
+      <button mat-icon-button [matMenuTriggerFor]="menuItems" >
         <mat-icon>menu</mat-icon>
       </button>
-      <span>My App</span>
+      <span>Inventarios</span>
     </mat-toolbar-row>
   </mat-toolbar>
   

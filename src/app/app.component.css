@@ -1,0 +1,12 @@
+.app-container {
+    position: relative;
+  }
+  
+  .menu-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999; /* Ajusta este valor según sea necesario para que el menú aparezca por encima de otros elementos */
+  }
+  

@@ -1,4 +1,6 @@
-<table mat-table [dataSource]="usuarios" class="mat-elevation-z8 demo-table">
+<div class="table-container">
+<br><br>
+<table mat-table [dataSource]="usuarios" class="mat-elevation-z8 demo-table table">
   <!-- Columnas de la tabla -->
   <ng-container matColumnDef="id">
     <th mat-header-cell *matHeaderCellDef> Id </th>
@@ -193,6 +195,9 @@
   <!-- Filas de datos -->
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
+</div>
+<div class="paginator-container">
+  <mat-paginator [length]="totalElements" [pageSize]="pageSize" [pageIndex]="paginator.pageIndex"
+    (page)="onPageChange($event)" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  </div>
 
-<mat-paginator [length]="totalElements" [pageSize]="pageSize" [pageIndex]="paginator.pageIndex"
-  (page)="onPageChange($event)" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
