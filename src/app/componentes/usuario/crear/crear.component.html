@@ -1,0 +1,10 @@
+<form (ngSubmit)="crearUsuario()" enctype="multipart/form-data" method="post">
+
+    <!-- Archivo de Acta de Entrega -->
+    <input type="file" (change)="onFileChange($event, 'archivoActaEntrega')" accept=".pdf,.doc,.docx">
+
+    <!-- Archivo de Formato Activo -->
+    <input type="file" (change)="onFileChange($event, 'archivoFormatoActivo')" accept=".pdf,.doc,.docx">
+
+    <button type="submit">Guardar usuario</button>
+</form>

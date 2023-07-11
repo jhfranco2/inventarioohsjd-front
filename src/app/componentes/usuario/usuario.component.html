@@ -1,3 +1,8 @@
+<mat-card>
+  <mat-card-actions>
+    <button mat-button color="primary" routerLinkActive="true" routerLink="/crear-usuario"><a>crear</a></button>
+  </mat-card-actions>
+</mat-card>
 <div class="table-container" *ngIf="usuarios.length >0; else noUsuarios">
 <br><br>
 <table mat-table [dataSource]="usuarios" class="mat-elevation-z8 demo-table table">
@@ -197,14 +202,14 @@
 </table>
 
 </div>
-<ng-template #noUsuarios>
-  <br><br><br>
-  <div>
-    No se encontró invetario
-  </div>
-</ng-template>
+
 <div class="paginator-container">
   <mat-paginator [length]="totalElements" [pageSize]="pageSize" [pageIndex]="paginator.pageIndex"
-    (page)="onPageChange($event)" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+    (page)="onPageChange($event)" [pageSizeOptions]="[5, 10, 25, 100]" ></mat-paginator>
   </div>
-
+  <ng-template #noUsuarios>
+    <br><br><br>
+    <div>
+      <p style="text-align: center;">No se encontró invetario</p>
+    </div>
+  </ng-template>

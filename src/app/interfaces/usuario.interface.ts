@@ -1,5 +1,5 @@
  export interface EquipoSoftwareInterface {
-	idEquipoSoftware: number;
+	idEquipoSoftware?: number;
 	serial?: string;
 	nombreEquipo?: string;
 	sisOperativo?: string;
@@ -9,7 +9,7 @@
 }
 
 export interface EquipoHadwareInterface {
-	idEquipoHadware: number;
+	idEquipoHadware?: number;
 	marca?:string;
 	marcaMonitor?: string;
 	tamanio?: string;
@@ -34,18 +34,18 @@ export interface EquipoHadwareInterface {
 	tipo2:string;
 }
 export interface Content {
-	id: number;
-	cenCos?: any;
-	grupoAreaPertence?: any;
+	id?: number;
+	cenCos?: string;
+	grupoAreaPertence?: string;
 	nombre?: any;
-	documento: number;
-	cargo?: any;
-	rutaActaEntrega?: any;
-	rutaFormatoActivo?: any;
-	fechaAsignacion?: any;
-	fechaCompra?: any;
-	observacion?: any;
-	estado?: any;
+	documento?: number;
+	cargo?: string;
+	archivoActaEntrega?: File | string;
+	archivoFormatoActivo?: File | string;
+	fechaAsignacion?: string;
+	fechaCompra?: string;
+	observacion?: string;
+	estado?: string;
 	equipoSoftware?: EquipoSoftwareInterface;
 	equipoHadware?: EquipoHadwareInterface;
 }
@@ -82,4 +82,26 @@ export interface Usuario {
 
 export interface UsuarioResponse {
 	usuarios: Usuario;
+}
+
+
+export class UsuarioCrear implements Content{
+	id?: number | undefined;
+	cenCos?: string | undefined;
+	grupoAreaPertence?: string | undefined;
+	nombre?: any;
+	documento?: number;
+	cargo?: string | undefined;
+	archivoActaEntrega?: File | string;
+	archivoFormatoActivo?: File |string;
+	fechaAsignacion?: string | undefined;
+	fechaCompra?: string | undefined;
+	observacion?: string | undefined;
+	estado?: string | undefined;
+	equipoSoftware?: EquipoSoftwareInterface | undefined;
+	equipoHadware?: EquipoHadwareInterface | undefined;
+
+	
+	
+
 }

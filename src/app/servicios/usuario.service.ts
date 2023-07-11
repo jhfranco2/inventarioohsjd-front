@@ -1,7 +1,7 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map } from 'rxjs'
-import { UsuarioResponse } from '../interfaces/usuario.interface';
+import { Observable, map } from 'rxjs'
+import { Content, UsuarioCrear, UsuarioResponse } from '../interfaces/usuario.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -21,5 +21,15 @@ export class UsuarioService {
       .set('asc', asc.toString());
       return this.http.get<UsuarioResponse>(this.url, { params });
   }
+
+  crearUsuario(usuario: any, archivos: FormData): Observable<any> {
+    const url = `${this.url}crear-usuario`;
+    const headers = new HttpHeaders();
+    headers.append('Accept', 'application/json');
+
+    return this.http.post(url, archivos, { headers });
+  }
+  
+  
 
 }

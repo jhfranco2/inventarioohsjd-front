@@ -63,7 +63,7 @@ export class UsuarioComponent implements OnInit {
   }
 
   getUsuarios(): void {
-    const pageIndex = this.paginator.pageIndex;
+    const pageIndex = this.paginator?.pageIndex;
     this.usuarioService.getUsuarios(pageIndex, this.pageSize, 'id', false)
       .subscribe((data: UsuarioResponse) => {
         this.usuarios = data.usuarios.content;
