@@ -24,9 +24,10 @@ export class UsuarioService {
 
   crearUsuario(usuario: any, archivos: FormData): Observable<any> {
     const url = `${this.url}crear-usuario`;
-    const headers = new HttpHeaders();
-    headers.append('Accept', 'application/json');
-
+    const headers = new HttpHeaders().append('Accept', 'application/json');
+  
+    archivos.append('usuario', JSON.stringify(usuario));
+  
     return this.http.post(url, archivos, { headers });
   }
   
