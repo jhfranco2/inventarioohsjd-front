@@ -9,8 +9,10 @@ import { UsuarioService } from 'src/app/servicios/usuario.service';
 })
 export class CrearComponent {
 
-  usuario: UsuarioCrear = new UsuarioCrear();
+  usuario: UsuarioCrear = { equipoSoftware: {}, equipoHadware: {} };
   archivos: FormData = new FormData();
+  selectedFileNameActaEntrega?: string;
+  selectedFileNameFormatoActivo?: string;
   constructor(
     private usuarioService: UsuarioService) {
   }
@@ -31,6 +33,11 @@ export class CrearComponent {
   onFileChange(event: any, tipoArchivo: string) {
     if (event.target.files && event.target.files.length > 0) {
       const file = event.target.files[0];
+      if (tipoArchivo === 'archivoActaEntrega') {
+        this.selectedFileNameActaEntrega = file.name;
+      } else if (tipoArchivo === 'archivoFormatoActivo') {
+        this.selectedFileNameFormatoActivo = file.name;
+      }
       this.archivos.append(tipoArchivo, file);
     }
   }

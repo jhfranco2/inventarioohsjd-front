@@ -1,6 +1,6 @@
- export interface EquipoSoftwareInterface {
+export interface EquipoSoftwareInterface {
 	idEquipoSoftware?: number;
-	serial?: string;
+	serial?: string ;
 	nombreEquipo?: string;
 	sisOperativo?: string;
 	licencia?: string;
@@ -27,11 +27,11 @@ export interface EquipoHadwareInterface {
 	modelo?:string;
 	tipo?:string;
 	procesador?:string;
-	fecuencia?:string;
+	frecuencia?:string;
 	memRar?:string;
 	capacidad?:string;
 	discDuros?:string;
-	tipo2:string;
+	tipo2?:string;
 }
 export interface Content {
 	id?: number;
@@ -98,10 +98,8 @@ export class UsuarioCrear implements Content{
 	fechaCompra?: string | undefined;
 	observacion?: string | undefined;
 	estado?: string | undefined;
-	equipoSoftware?: EquipoSoftwareInterface | undefined;
-	equipoHadware?: EquipoHadwareInterface | undefined;
-
-	
-	
+	equipoSoftware?: EquipoSoftwareInterface ;
+	equipoHadware?: EquipoHadwareInterface ;
 
 }
+
