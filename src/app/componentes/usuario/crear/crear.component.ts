@@ -9,7 +9,7 @@ import { UsuarioService } from 'src/app/servicios/usuario.service';
 })
 export class CrearComponent {
 
-  usuario: UsuarioCrear = { equipoSoftware: {}, equipoHadware: {} };
+  usuario: UsuarioCrear = new UsuarioCrear();
   archivos: FormData = new FormData();
   selectedFileNameActaEntrega?: string;
   selectedFileNameFormatoActivo?: string;
@@ -20,7 +20,7 @@ export class CrearComponent {
     this.usuarioService.crearUsuario(this.usuario, this.archivos)
       .subscribe(
         response => {
-          console.log('Usuario creado exitosamente');
+          console.log(this.usuario);
           // Realizar acciones adicionales después de crear el usuario
         },
         error => {
