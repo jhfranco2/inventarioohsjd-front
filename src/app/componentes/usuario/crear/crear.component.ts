@@ -10,12 +10,12 @@ import { UsuarioService } from 'src/app/servicios/usuario.service';
 export class CrearComponent {
 
   usuario: UsuarioCrear = new UsuarioCrear();
-  archivos: FormData = new FormData();
-  constructor(
-    private usuarioService: UsuarioService) {
-  }
+  imagenSeleccionada: File = new File([], 'sin_imagen.png');
+
+  constructor(private usuarioService: UsuarioService) {}
+
   crearUsuario() {
-    this.usuarioService.crearUsuario(this.usuario, this.archivos)
+    this.usuarioService.crearUsuario(this.usuario)
       .subscribe(
         response => {
           console.log(this.usuario);
@@ -28,10 +28,9 @@ export class CrearComponent {
       );
   }
 
-  onFileChange(event: any, tipoArchivo: string) {
-    if (event.target.files && event.target.files.length > 0) {
-      const file = event.target.files[0];
-      this.archivos.append(tipoArchivo, file);
-    }
+  onFileSelected(event: any) {
+    this.imagenSeleccionada = event.target.files[0];
+    this.usuario.archivoActaEntrega = this.imagenSeleccionada;
+
   }
 }

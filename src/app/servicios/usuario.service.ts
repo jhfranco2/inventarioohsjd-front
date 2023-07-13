@@ -22,13 +22,24 @@ export class UsuarioService {
       return this.http.get<UsuarioResponse>(this.url, { params });
   }
 
-  crearUsuario(usuario: any, archivos: FormData): Observable<any> {
-    const url = `${this.url}crear-usuario`;
-    const headers = new HttpHeaders().append('Accept', 'application/json');
+  public crearUsuario(usuario: Content) {
+    const formData = new FormData();
+    formData.append('', JSON.stringify(usuario));
   
-    archivos.append('usuario', JSON.stringify(usuario));
+    if (usuario.archivoActaEntrega) {
+      formData.append('archivoActaEntrega', usuario.archivoActaEntrega);
+    }
+    if (usuario.archivoFormatoActivo) {
+      formData.append('archivoFormatoActivo', usuario.archivoFormatoActivo);
+    }
   
-    return this.http.post(url, archivos, { headers });
+    console.log("soy el formdata")
+    formData.forEach((value: Blob | string, key: string) => {
+      console.log(`Clave: ${key}, Valor: ${value}`);
+    });
+    
+  
+    return this.http.post(`${this.url}crear-usuario`, formData);
   }
   
   

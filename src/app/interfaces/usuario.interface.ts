@@ -87,17 +87,17 @@ export interface UsuarioResponse {
 
 export class UsuarioCrear implements Content{
 	id?: number | undefined;
-	cenCos?: string | undefined;
+	cenCos?: string = '';
 	grupoAreaPertence?: string | undefined;
-	nombre?: any;
+	nombre?: string = '';
 	documento?: number;
-	cargo?: string | undefined;
-	archivoActaEntrega?: File | string;
-	archivoFormatoActivo?: File |string;
-	fechaAsignacion?: string | undefined;
-	fechaCompra?: string | undefined;
-	observacion?: string | undefined;
-	estado?: string | undefined;
+	cargo?: string = '';
+	archivoActaEntrega?: File ;
+	archivoFormatoActivo?: File ;
+	fechaAsignacion?: string = '';
+	fechaCompra?: string = '';
+	observacion?: string = '';
+	estado?: string = '';
 	equipoSoftware?: EquipoSoftwareInterface | undefined;
 	equipoHadware?: EquipoHadwareInterface | undefined;
 
