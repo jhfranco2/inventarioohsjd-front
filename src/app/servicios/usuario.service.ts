@@ -9,7 +9,7 @@ import { Content, UsuarioCrear, UsuarioResponse } from '../interfaces/usuario.in
 export class UsuarioService {
 
 
-  url = 'http://localhost:8080/inventario-api/v1/'
+  url = 'http://192.168.0.6:8080/inventario-api/v1/'
 
   constructor(private http: HttpClient) { }
 
@@ -24,7 +24,9 @@ export class UsuarioService {
 
   public crearUsuario(usuario: Content) {
     const formData = new FormData();
-    formData.append('', JSON.stringify(usuario));
+    if(usuario.nombre){
+      formData.append('nombre',usuario.nombre);
+    }
   
     if (usuario.archivoActaEntrega) {
       formData.append('archivoActaEntrega', usuario.archivoActaEntrega);
@@ -32,12 +34,6 @@ export class UsuarioService {
     if (usuario.archivoFormatoActivo) {
       formData.append('archivoFormatoActivo', usuario.archivoFormatoActivo);
     }
-  
-    console.log("soy el formdata")
-    formData.forEach((value: Blob | string, key: string) => {
-      console.log(`Clave: ${key}, Valor: ${value}`);
-    });
-    
   
     return this.http.post(`${this.url}crear-usuario`, formData);
   }
